@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple file share</title>
+</head>
+<body>
+
+<h1>upload</h1>
+<form action="/upload" method="post" enctype="multipart/form-data">
+<input type="file" name="file" size="30">
+<input type="submit" />
+
+<h1>donwload</h1>
+<table border="1" cellspacing="0" cellpadding="0">
+<thead><tr>
+    <th>download</th>
+    <th>delete</th>
+</tr></thead>
+<tbody>
+
+{% for filename in files %}
+<tr>
+    <td><a href="/download?filename={{filename}}">{{ filename }}</a></td>
+    <td><a href="/delete?filename={{filename}}">delete</a></td>
+</tr>
+{% endfor %}
+
+</tbody>
+</table>
+
+</body>
+</html>
